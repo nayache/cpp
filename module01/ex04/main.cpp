@@ -12,7 +12,8 @@
 
 #include <iostream>
 #include <cstring>
-#include "replace.cpp"
+
+void	replace(std::string name, std::string s1, std::string s2);
 
 static bool	is_alpha(char c)
 {
@@ -72,7 +73,9 @@ int	main(int ac, char **av)
 			std::cout << "Error arguments" << std::endl;
 			return (0);
 		}
-		replace(std::string(av[1]), std::string(av[2]), std::string(av[3]));
+		std::string s1(av[2]), s2(av[3]);
+		if (s1.compare(s2) != 0)
+			replace(std::string(av[1]), s1, s2);
 	}
 	return (0);
 }
