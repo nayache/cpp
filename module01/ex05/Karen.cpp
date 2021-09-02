@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 09:41:47 by nayache           #+#    #+#             */
-/*   Updated: 2021/09/02 10:29:27 by nayache          ###   ########.fr       */
+/*   Updated: 2021/09/02 10:39:42 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	Karen::debug(void)
 {
 	std::cout << "\033[32m\"DEBUG\"\033[0m" << std::endl;
-	std::cout << "I love to get extra bacon for my 7XL-double-cheese-burger.";
+	std::cout << "I love to get extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger.";
 	std::cout << "I just love it!" << std::endl;
 }
 
