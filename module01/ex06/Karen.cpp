@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 09:41:47 by nayache           #+#    #+#             */
-/*   Updated: 2021/09/02 13:43:03 by nayache          ###   ########.fr       */
+/*   Updated: 2021/09/02 13:41:10 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,12 @@ void	Karen::error(void)
 static int	occurence(std::string level)
 {
 	const std::string	nameFunction[4] = {"debug", "info", "warning", "error"};
+	const std::string	upperNameFunction[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int	i(0);
 
 	while (i < 4)
 	{
-		if (level.compare(nameFunction[i]) == 0)
+		if (level.compare(nameFunction[i]) == 0 || level.compare(upperNameFunction[i]) == 0)
 			return (i);
 		i++;
 	}
