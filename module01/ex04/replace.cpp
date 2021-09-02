@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 12:43:58 by nayache           #+#    #+#             */
-/*   Updated: 2021/08/18 13:14:29 by nayache          ###   ########.fr       */
+/*   Updated: 2021/08/30 16:42:04 by smith            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static bool	openReplaceFile(std::ofstream& replaceFile, std::string name)
 	replaceFile.open(replaceFileName);
 	if (!replaceFileName)
 	{
-		std::cout << "Error: fail to open '" << replaceFileName << "'" << std::endl;
+		std::cout << "\033[31mError: fail to open '" << replaceFileName << "'\033[0m" << std::endl;
 		return (0);
 	}
 	return (1);
@@ -59,7 +59,7 @@ void	replace(std::string name, std::string s1, std::string s2)
 		if (file)
 			file.close();
 		else
-			std::cout << "Error: '" << name << "' does not exist" << std::endl;
+			std::cout << "\033[31mError: '" << name << "' does not exist\033[0m" << std::endl;
 		return ;
 	}
 	while (std::getline(file, line))

@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 12:22:28 by nayache           #+#    #+#             */
-/*   Updated: 2021/08/18 12:44:57 by nayache          ###   ########.fr       */
+/*   Updated: 2021/08/30 16:42:33 by smith            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	main(int ac, char **av)
 	{
 		if (check_args(av + 1, ac - 1) == 0)
 		{
-			std::cout << "Error arguments" << std::endl;
+			std::cout << "\033[31mError arguments\033[0m" << std::endl;
 			return (0);
 		}
 		std::string s1(av[2]), s2(av[3]);
