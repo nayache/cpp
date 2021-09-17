@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/16 14:36:53 by nayache           #+#    #+#             */
-/*   Updated: 2021/09/06 17:40:01 by nayache          ###   ########.fr       */
+/*   Created: 2021/09/13 15:13:57 by nayache           #+#    #+#             */
+/*   Updated: 2021/09/15 18:18:21 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
-# include <iostream>
+#include <iostream>
+#include "Fixed.hpp"
 
-class	Zombie
+int	main(void)
 {
-	public:
-
-	Zombie(std::string name);
-	Zombie();
-	~Zombie();
-	void				setName(std::string name);
-	std::string			getName(void) const;
-	void				announce(std::string name) const;
-
-	private:
-
-	std::string _name;
-};
-
-#endif
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return (0);
+}

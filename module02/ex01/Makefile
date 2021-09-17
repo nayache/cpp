@@ -6,17 +6,17 @@
 #    By: nayache <nayache@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/09 17:55:28 by nayache           #+#    #+#              #
-#    Updated: 2021/09/06 16:16:13 by nayache          ###   ########.fr        #
+#    Updated: 2021/09/17 15:03:00 by nayache          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Horde
+NAME = a.out
 
 CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp Zombie.cpp ZombieHorde.cpp
+SRCS =	main.cpp Fixed.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

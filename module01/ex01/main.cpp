@@ -6,12 +6,13 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 16:02:17 by nayache           #+#    #+#             */
-/*   Updated: 2021/08/16 16:20:52 by nayache          ###   ########.fr       */
+/*   Updated: 2021/09/06 17:10:20 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 #include <stdlib.h>
+#include <stdio.h>
 
 Zombie	*zombieHorde(int N, std::string name);
 

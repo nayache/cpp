@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 15:06:43 by nayache           #+#    #+#             */
-/*   Updated: 2021/08/16 16:23:59 by nayache          ###   ########.fr       */
+/*   Updated: 2021/09/06 17:44:21 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 void	randomChump(std::string name)
 {
-	Zombie* Chump = newZombie(name);
+	Zombie Chump(name);
 	
-	Chump->announce(Chump->getName());
-	delete Chump;
+	Chump.announce(Chump.getName());
 }
