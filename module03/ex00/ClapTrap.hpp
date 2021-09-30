@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 07:17:42 by nayache           #+#    #+#             */
-/*   Updated: 2021/09/30 11:30:23 by nayache          ###   ########.fr       */
+/*   Updated: 2021/09/30 12:28:45 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class ClapTrap
 	ClapTrap(std::string name);
 	ClapTrap(ClapTrap const & src);
 	~ClapTrap();
-	ClapTrap(unsigned int hit, unsigned int energy, unsigned int dmg);
 	ClapTrap&	operator=(ClapTrap const & src);
 	std::string	getName() const;
 	void	printCharacteristics(void);
