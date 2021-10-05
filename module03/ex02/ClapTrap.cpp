@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 07:36:55 by nayache           #+#    #+#             */
-/*   Updated: 2021/09/30 12:20:54 by nayache          ###   ########.fr       */
+/*   Updated: 2021/09/30 13:34:21 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap() : _name("Unknow"), _hitpts(10), _energypts(100), _attackdmg(0)
 {
-	std::cout << "Constructor(default) has been called: " << this << std::endl;
+	std::cout << "Constructor Clap(default) has been called: " << this << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitpts(10), _energypts(100), _attackdmg(0)
@@ -40,6 +40,11 @@ ClapTrap&	ClapTrap::operator=(ClapTrap const & src)
 	this->_energypts = src._energypts;
 	this->_attackdmg = src._attackdmg;
 	return (*this);
+}
+
+void	ClapTrap::setName(std::string name)
+{
+	this->_name = name;
 }
 
 std::string	ClapTrap::getName() const

@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 10:58:09 by nayache           #+#    #+#             */
-/*   Updated: 2021/09/30 13:36:45 by nayache          ###   ########.fr       */
+/*   Updated: 2021/09/30 13:44:45 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ FragTrap::FragTrap()
 	this->_attackdmg = 30;
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "Constructor Frag(" << name << ") has been called: " << this << std::endl;
-	this->setName(name);
 	this->_hitpts = 100;
 	this->_energypts = 100;
 	this->_attackdmg = 30;

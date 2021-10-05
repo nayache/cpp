@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/30 09:12:34 by nayache           #+#    #+#             */
-/*   Updated: 2021/09/30 13:09:47 by nayache          ###   ########.fr       */
+/*   Created: 2021/09/30 07:46:29 by nayache           #+#    #+#             */
+/*   Updated: 2021/10/05 14:17:20 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
-# include "ClapTrap.hpp"
+#include "DiamondTrap.hpp"
 
-class	ScavTrap : public ClapTrap
+int	main(void)
 {
-	public:
+	DiamondTrap	Daryl("Daryl");
+	DiamondTrap	Josh("Josh");
 
-	ScavTrap();
-	ScavTrap(std::string name);
-	ScavTrap(ScavTrap const & src);
-	~ScavTrap();
-	ScavTrap&	operator=(ScavTrap const & src);
-	void	attack(std::string const & target);
-	void	guardGate();
-
-	protected:
-
-	bool	_gateKeeperMode;	
-};
-
-#endif
+	Daryl.whoAmI();
+	Daryl.attack("Josh");
+	Josh.takeDamage(30);
+	Daryl.printCharacteristics();
+	Josh.printCharacteristics();
+	return (0);
+}

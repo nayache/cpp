@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 09:12:34 by nayache           #+#    #+#             */
-/*   Updated: 2021/09/30 10:41:58 by nayache          ###   ########.fr       */
+/*   Updated: 2021/09/30 13:09:47 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	ScavTrap : public ClapTrap
 	void	attack(std::string const & target);
 	void	guardGate();
 
-	private:
+	protected:
 
 	bool	_gateKeeperMode;	
 };

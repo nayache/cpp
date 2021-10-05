@@ -6,21 +6,21 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 09:19:52 by nayache           #+#    #+#             */
-/*   Updated: 2021/09/30 12:01:01 by nayache          ###   ########.fr       */
+/*   Updated: 2021/09/30 14:01:49 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap(), _gateKeeperMode(0)
+ScavTrap::ScavTrap() : ClapTrap(), _gateKeeperMode(false)
 {
 	this->_hitpts = 100;
 	this->_energypts = 50;
 	this->_attackdmg = 20;
-	std::cout << "Constructor Scav (default) has been called: " << this << std::endl;
+	std::cout << "Constructor Scav(default) has been called: " << this << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _gateKeeperMode(0)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _gateKeeperMode(false)
 {
 	this->_hitpts = 100;
 	this->_energypts = 50;
@@ -45,7 +45,7 @@ ScavTrap&	ScavTrap::operator=(ScavTrap const & src)
 	this->_hitpts = src._hitpts;
 	this->_energypts = src._energypts;
 	this->_attackdmg = src._attackdmg;
-	this->_gateKeeperMode = 0;
+	this->_gateKeeperMode = false;
 	return (*this);
 }
 
@@ -60,7 +60,9 @@ void	ScavTrap::attack(std::string const & target)
 
 void	ScavTrap::guardGate()
 {
+	if (this->_gateKeeperMode == true)
+		return;
+	this->_gateKeeperMode = true;
 	std::cout << "\033[1;3;32m" << this->_name << "\033[0m has entered \033[1;36mGate keeper\033[0m mode.";
 	std::cout << std::endl;
-	this->_gateKeeperMode = 1;
 }
