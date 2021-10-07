@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 07:50:38 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 11:38:45 by nayache          ###   ########.fr       */
+/*   Created: 2021/10/07 14:56:47 by nayache           #+#    #+#             */
+/*   Updated: 2021/10/07 15:36:44 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "Ice.hpp"
 
-# include <iostream>
-
-class	Animal
+Ice::Ice() : AMateria("ice")
 {
-	public:
-	
-	Animal();
-	Animal(Animal const & src);
-	virtual	~Animal();	
-	Animal&	operator=(Animal const & src);
-	virtual void	makeSound(void) const;
-	std::string	getType(void)	const;
-	virtual	void	printMyIdeas(void) const;
-	
-	protected:
-	
-	Animal(std::string type);
-	std::string	type;
-};
+	std::cout << "Ice Constructor has been called" << std::endl;
+}
 
-#endif
+Ice::Ice(Ice const & src)
+{
+	this->type = src.getType();
+}
+
+Ice::~Ice()
+{
+	std::cout << "Ice Destructor has been called" << std::endl;
+}
+
+AMateria* Ice::clone(void) const
+{
+	AMateria*	clone = new Ice();
+
+	return (clone);
+};

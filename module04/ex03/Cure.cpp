@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 07:50:38 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 11:38:45 by nayache          ###   ########.fr       */
+/*   Created: 2021/10/07 14:56:47 by nayache           #+#    #+#             */
+/*   Updated: 2021/10/07 15:34:45 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "Cure.hpp"
 
-# include <iostream>
-
-class	Animal
+Cure::Cure() : AMateria("cure")
 {
-	public:
-	
-	Animal();
-	Animal(Animal const & src);
-	virtual	~Animal();	
-	Animal&	operator=(Animal const & src);
-	virtual void	makeSound(void) const;
-	std::string	getType(void)	const;
-	virtual	void	printMyIdeas(void) const;
-	
-	protected:
-	
-	Animal(std::string type);
-	std::string	type;
-};
+	std::cout << "Cure Constructor has been called" << std::endl;
+}
 
-#endif
+Cure::Cure(Cure const & src)
+{
+	this->type = src.getType();
+}
+
+Cure::~Cure()
+{
+	std::cout << "Cure Destructor has been called" << std::endl;
+}
+
+AMateria* Cure::clone(void) const
+{
+	AMateria*	clone = new Cure();
+
+	return (clone);
+};

@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 07:50:38 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 11:38:45 by nayache          ###   ########.fr       */
+/*   Created: 2021/10/07 14:49:12 by nayache           #+#    #+#             */
+/*   Updated: 2021/10/07 15:38:20 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include <iostream>
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
-class	Animal
+class MateriaSource : public IMateriaSource
 {
 	public:
 	
-	Animal();
-	Animal(Animal const & src);
-	virtual	~Animal();	
-	Animal&	operator=(Animal const & src);
-	virtual void	makeSound(void) const;
-	std::string	getType(void)	const;
-	virtual	void	printMyIdeas(void) const;
-	
-	protected:
-	
-	Animal(std::string type);
-	std::string	type;
+		MateriaSource();
+		~MateriaSource();
+		void learnMateria(AMateria*);
+		AMateria* createMateria(std::string const & type);
+
+	private:
+
+		std::string _learned[4];
 };
 
 #endif

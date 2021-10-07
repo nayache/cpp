@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 07:50:38 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 11:38:45 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/07 11:37:44 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ class	Animal
 {
 	public:
 	
-	Animal();
-	Animal(Animal const & src);
 	virtual	~Animal();	
 	Animal&	operator=(Animal const & src);
 	virtual void	makeSound(void) const;
@@ -31,6 +29,11 @@ class	Animal
 	
 	Animal(std::string type);
 	std::string	type;
+
+	private:
+
+	Animal();
+	Animal(Animal const & src);
 };
 
 #endif

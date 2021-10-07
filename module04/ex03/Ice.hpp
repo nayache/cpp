@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 07:50:38 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 11:38:45 by nayache          ###   ########.fr       */
+/*   Created: 2021/10/07 14:54:09 by nayache           #+#    #+#             */
+/*   Updated: 2021/10/07 15:41:04 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-# include <iostream>
+# include "AMateria.hpp"
 
-class	Animal
+class	AMateria;
+
+class	Ice : public AMateria
 {
 	public:
 	
-	Animal();
-	Animal(Animal const & src);
-	virtual	~Animal();	
-	Animal&	operator=(Animal const & src);
-	virtual void	makeSound(void) const;
-	std::string	getType(void)	const;
-	virtual	void	printMyIdeas(void) const;
+		Ice();	
+		Ice(Ice const & src);
+		std::string const & getType() const; //Returns the materia type
+		AMateria* clone() const;
+		~Ice();
+		void use(ICharacter& target);
 	
 	protected:
-	
-	Animal(std::string type);
-	std::string	type;
+
+		std::string	type;
 };
 
 #endif
