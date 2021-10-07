@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 15:14:59 by nayache           #+#    #+#             */
-/*   Updated: 2021/09/17 19:00:20 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/05 09:52:55 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ int	main(void)
 	std::cout << b << std::endl;
 	
 	std::cout << Fixed::max(a, b) << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a / 2 << std::endl;
 	return (0);
 }

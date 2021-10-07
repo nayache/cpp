@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 12:46:13 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/05 14:09:47 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/07 07:18:10 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ DiamondTrap::~DiamondTrap()
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << this->_name << std::endl;
-	std::cout << this->ClapTrap::_name << std::endl;
+	std::cout << "\033[1;3;32m" << this->_name << ": \033[0m";
+	std::cout << "\"my name is \033[1;3;32m" << this->_name << "\033[0m";
+	std::cout << " and my clap_name is \033[1;3;32m" << this->ClapTrap::_name;
+	std::cout << "\033[0m\"" << std::endl;
 }
