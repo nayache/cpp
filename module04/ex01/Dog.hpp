@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 07:50:38 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 10:42:21 by nayache          ###   ########.fr       */
+/*   Created: 2021/10/07 07:54:47 by nayache           #+#    #+#             */
+/*   Updated: 2021/10/07 10:21:14 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-# include <iostream>
-
-class	Animal
+class	Dog : public Animal
 {
 	public:
-	
-	Animal();
-	Animal(Animal const & src);
-	virtual	~Animal();	
-	Animal&	operator=(Animal const & src);
-	virtual void	makeSound(void) const;
-	std::string	getType(void)	const;
-	
-	protected:
-	
-	Animal(std::string type);
-	std::string	type;
+
+	Dog();
+	Dog(Dog const & src);
+	~Dog();
+	Dog&	operator=(Dog const & src);	
+	virtual void	makeSound(void)	const;
+	virtual	void	printMyIdeas(void) const;
+
+	private:
+
+	Brain*	_brain;
 };
 
 #endif

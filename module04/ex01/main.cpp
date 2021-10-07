@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 07:50:38 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 10:42:21 by nayache          ###   ########.fr       */
+/*   Created: 2021/10/07 07:51:43 by nayache           #+#    #+#             */
+/*   Updated: 2021/10/07 10:30:59 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "Brain.hpp"
 
-# include <iostream>
-
-class	Animal
+int	main(void)
 {
-	public:
+	const	Animal*	array[8];
 	
-	Animal();
-	Animal(Animal const & src);
-	virtual	~Animal();	
-	Animal&	operator=(Animal const & src);
-	virtual void	makeSound(void) const;
-	std::string	getType(void)	const;
+	for (int i = 0; i < 8; i++)
+	{
+		if (i < 4)
+			array[i] = new Dog();
+		else
+			array[i] = new Cat();
+	}
 	
-	protected:
+	for (int i = 0; i < 8; i++)
+	{
+		array[i]->printMyIdeas();
+		delete array[i];
+	}
 	
-	Animal(std::string type);
-	std::string	type;
-};
-
-#endif
+	return (0);
+}
