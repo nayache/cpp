@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 11:45:04 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 15:44:43 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/08 08:48:49 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <iostream>
 # include "ICharacter.hpp"
 
-class	ICharacter;
+class ICharacter;
 
 class	AMateria
 {

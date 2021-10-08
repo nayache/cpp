@@ -6,7 +6,7 @@
 #    By: nayache <nayache@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/09 17:55:28 by nayache           #+#    #+#              #
-#    Updated: 2021/10/07 15:38:07 by nayache          ###   ########.fr        #
+#    Updated: 2021/10/08 09:07:24 by nayache          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp Character.cpp AMateria.cpp MateriaSource.cpp Cure.cpp Ice.cpp
+SRCS =	main.cpp Character.cpp AMateria.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

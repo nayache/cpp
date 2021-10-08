@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:49:12 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 15:38:20 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/08 09:26:09 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ class MateriaSource : public IMateriaSource
 
 	private:
 
-		std::string _learned[4];
+		AMateria* _learned[4];
+		unsigned int _count;
 };
 
 #endif

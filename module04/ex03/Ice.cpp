@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:56:47 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 15:36:44 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/08 08:59:30 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,19 @@ Ice::~Ice()
 	std::cout << "Ice Destructor has been called" << std::endl;
 }
 
+std::string const & Ice::getType() const //Returns the materia type
+{
+	return (this->type);
+}
+
 AMateria* Ice::clone(void) const
 {
 	AMateria*	clone = new Ice();
 
 	return (clone);
 };
+
+void	Ice::use(ICharacter& target)
+{
+	this->AMateria::use(target);
+}
