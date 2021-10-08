@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 08:51:29 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/08 08:51:33 by nayache          ###   ########.fr       */
+/*   Created: 2021/10/08 08:51:45 by nayache           #+#    #+#             */
+/*   Updated: 2021/10/08 11:17:59 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "AMateria.hpp"
 
-class AMateria;
+class	AMateria;
 
 class	Cure : public AMateria
 {
@@ -23,9 +23,10 @@ class	Cure : public AMateria
 	
 		Cure();	
 		Cure(Cure const & src);
-		std::string const & getType() const; //Returns the materia type
-		AMateria* clone() const;
 		~Cure();
+		Cure& operator=(Cure const & src);
+		std::string const & getType() const;
+		AMateria* clone() const;
 		void use(ICharacter& target);
 	
 	protected:

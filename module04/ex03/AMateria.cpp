@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 11:49:19 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/08 10:10:48 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/08 11:42:28 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,26 @@
 
 AMateria::AMateria()
 {
-	std::cout << "AMateria constructor(default) has been called" << std::endl;
+	//std::cout << "AMateria constructor(default) has been called" << std::endl;
 }
 
 AMateria::AMateria(std::string const & type) : type(type) 
 {
-	std::cout << "AMateria constructor has been called" << std::endl;
+	//std::cout << "AMateria constructor has been called" << std::endl;
+}
+
+AMateria::AMateria(AMateria const & src)
+{
+	this->type = src.getType();
+}
+
+AMateria&	AMateria::operator=(AMateria const & src)
+{
+	if (this == &src)
+		return (*this);
+
+	this->type = src.getType();
+	return (*this);
 }
 
 std::string	const &	AMateria::getType(void) const
@@ -30,7 +44,7 @@ std::string	const &	AMateria::getType(void) const
 
 AMateria::~AMateria()
 {
-	std::cout << "AMateria destructor has been called" << std::endl;
+	//std::cout << "AMateria destructor has been called" << std::endl;
 }
 
 void	AMateria::use(ICharacter& target)

@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:05:22 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/08 10:24:20 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/08 11:38:22 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,35 +17,36 @@
 
 int	main(void)
 {
-	ICharacter*	smith = new Character("Smith");
-	ICharacter*	neo = new Character("Neo");
-
-	IMateriaSource*	src = new MateriaSource();
-	src->learnMateria(new Cure());
+	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 	
-	AMateria*	tmp;
+	ICharacter* me = new Character("me");
+	
+	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	smith->equip(tmp);
+	me->equip(tmp);
 	tmp = src->createMateria("cure");
-	smith->equip(tmp);
+	me->equip(tmp);
 	tmp = src->createMateria("cure");
-	smith->equip(tmp);
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	me->unequip(3);
+	delete tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
 	tmp = src->createMateria("roc");
-	smith->equip(tmp);
-	tmp = src->createMateria("cure");
-	smith->equip(tmp);
-	tmp = src->createMateria("cure");
-	smith->equip(tmp);
+	me->equip(tmp);
+	
+	ICharacter* bob = new Character("bob");
+	
+	me->use(0, *bob);
+	me->use(1, *bob);
 
-	smith->unequip(2);
-	
-	smith->use(0, *neo);
-	smith->use(1, *neo);
-	smith->use(1, *neo);
-	
-	delete smith;
-	delete neo;
+	delete bob;
+	delete me;
 	delete src;
+	
 	return (0);
 }

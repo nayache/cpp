@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:25:50 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/08 10:31:02 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/08 11:29:13 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,51 @@
 
 Character::Character(std::string name) : _name(name)
 {
-	std::cout << "Character constructor has been called" << std::endl;
+//	std::cout << "Character constructor has been called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 }
 
 Character::~Character()
 {
-	std::cout << "Character destructor has been called" << std::endl;
+//	std::cout << "Character destructor has been called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i] != NULL)
 			delete this->_inventory[i];
 	}
 }	
+
+Character::Character(Character const & src)
+{
+	this->_name = src.getName();
+	
+	for (int i = 0; i < 4; i++)
+	{
+		if (src._inventory[i] == NULL)
+			this->_inventory[i] = NULL;
+		else
+			this->_inventory[i] = src._inventory[i]->clone();
+	}
+}
+
+Character&	Character::operator=(Character const & src)
+{
+	if (this == &src)
+		return (*this);
+	
+	this->~Character();
+	this->_name = src.getName();
+	
+	for (int i = 0; i < 4; i++)
+	{
+		if (src._inventory[i] == NULL)
+			this->_inventory[i] = NULL;
+		else
+			this->_inventory[i] = src._inventory[i]->clone();
+	}
+	return (*this);
+}
 
 std::string	const & Character::getName() const
 {
@@ -61,7 +92,7 @@ void	Character::equip(AMateria* src)
 
 void	Character::unequip(int index)
 {
-	if (index > 3 || this->_inventory[index] == NULL)
+	if (!(index >= 0 && index < 4) || this->_inventory[index] == NULL)
 		return;
 	
 	std::string currentType = this->_inventory[index]->getType();

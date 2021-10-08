@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 11:45:04 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/08 08:48:49 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/08 11:41:43 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class	AMateria
 	
 		AMateria();	
 		AMateria(std::string const & type);
+		AMateria(AMateria const & type);
+		AMateria& operator=(AMateria const & type);
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
 		virtual	~AMateria();

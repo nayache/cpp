@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:18:37 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 15:45:32 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/08 10:55:48 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Character: public ICharacter
 	public:
 		
 		Character(std::string name);
+		Character(Character const & src);
 		~Character();
 		Character&	operator=(Character const & src);
 		std::string const & getName() const;
