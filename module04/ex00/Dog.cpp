@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 07:55:55 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 09:12:40 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/11 07:31:53 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 Dog::Dog() : Animal("Dog")
 {
 	std::cout << "Dog constructor has been called" << std::endl;
+}
+
+Dog::Dog(Dog const & src) : Animal(src.getType())
+{
+
 }
 
 Dog::~Dog()

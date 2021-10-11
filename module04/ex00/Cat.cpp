@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 07:55:55 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 09:12:11 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/11 07:32:09 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 Cat::Cat() : Animal("Cat")
 {
 	std::cout << "Cat constructor has been called" << std::endl;
+}
+
+Cat::Cat(Cat const & src) : Animal(src.getType())
+{
+	
 }
 
 Cat::~Cat()

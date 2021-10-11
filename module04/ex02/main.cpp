@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 07:51:43 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 11:40:15 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/11 07:39:41 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ int	main(void)
 	Animal* B = new Animal();
 
 	delete A;
-	delete B;
 	return (0);
 }
