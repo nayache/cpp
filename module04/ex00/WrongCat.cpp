@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 07:55:55 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/13 12:32:14 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/13 12:31:40 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog() : Animal("Dog")
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-	std::cout << "Dog constructor has been called" << std::endl;
+	std::cout << "WrongCat constructor has been called" << std::endl;
 }
 
-Dog::Dog(Dog const & src) : Animal(src.getType())
+WrongCat::WrongCat(WrongCat const & src) : WrongAnimal(src.getType())
 {
-
+	
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << "Dog destructor has been called" << std::endl;
+	std::cout << "WrongCat destructor has been called" << std::endl;
 }
 
-void	Dog::makeSound(void) const
+void	WrongCat::makeSound(void) const
 {
-	std::cout << "\033[3;33m" << "\"Woof Woof !\"\033[0m" << std::endl;
+	std::cout << "\033[3;36m" << "\"Miaaouuw !\"\033[0m" << std::endl;
 }
 
-Dog&	Dog::operator=(Dog const & src)
+WrongCat&	WrongCat::operator=(WrongCat const & src)
 {
-	this->Animal::operator=(src);
+	this->WrongAnimal::operator=(src);
 
 	return (*this);
 }

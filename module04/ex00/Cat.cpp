@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 07:55:55 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/11 07:32:09 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/13 12:30:57 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Cat::~Cat()
 
 void	Cat::makeSound(void) const
 {
-	std::cout << "\033[3;38m" << "\"Miaaouuw !\"\033[0m" << std::endl;
+	std::cout << "\033[3;33m" << "\"Miaaouuw !\"\033[0m" << std::endl;
 }
 
 Cat&	Cat::operator=(Cat const & src)

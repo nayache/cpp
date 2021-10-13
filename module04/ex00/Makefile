@@ -6,7 +6,7 @@
 #    By: nayache <nayache@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/09 17:55:28 by nayache           #+#    #+#              #
-#    Updated: 2021/10/07 09:19:50 by nayache          ###   ########.fr        #
+#    Updated: 2021/10/13 12:27:25 by nayache          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS =	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
