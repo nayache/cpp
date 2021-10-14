@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 08:03:07 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/13 12:22:43 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/14 10:03:17 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 Animal::Animal()
 {
 	std::cout << "Animal Constructor(default) has been called" << std::endl;
-}
-
-Animal::Animal(std::string type) : type(type)
-{
-	std::cout << "Animal Constructor has been called" << std::endl;
 }
 
 Animal::Animal(Animal const & src)

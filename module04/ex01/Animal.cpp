@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 08:03:07 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 10:41:30 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/14 09:34:27 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ std::string	Animal::getType(void) const
 	return (this->type);
 }
 
-void	Animal::printMyIdeas(void) const
+void	Animal::printMyIdeas() const
 {
-
 }

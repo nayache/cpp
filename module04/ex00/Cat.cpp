@@ -6,20 +6,21 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 07:55:55 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/13 12:30:57 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/14 10:07:17 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("Cat")
+Cat::Cat()
 {
+	this->type = "Cat";
 	std::cout << "Cat constructor has been called" << std::endl;
 }
 
-Cat::Cat(Cat const & src) : Animal(src.getType())
+Cat::Cat(Cat const & src)
 {
-	
+	this->type = src.getType();
 }
 
 Cat::~Cat()
@@ -34,7 +35,6 @@ void	Cat::makeSound(void) const
 
 Cat&	Cat::operator=(Cat const & src)
 {
-	this->Animal::operator=(src);
-
+	this->type = src.getType();
 	return (*this);
 }

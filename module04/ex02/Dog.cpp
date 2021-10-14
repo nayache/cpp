@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 07:55:55 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 10:34:47 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/14 09:30:57 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ Dog::Dog() : Animal("Dog")
 {
 	std::cout << "Dog constructor has been called" << std::endl;
 	this->_brain = new Brain();
+}
+
+Dog::Dog(Dog const& src)
+{
+	this->_brain = new Brain();
+	*this = src;
 }
 
 Dog::~Dog()
@@ -31,8 +37,7 @@ void	Dog::makeSound(void) const
 
 Dog&	Dog::operator=(Dog const & src)
 {
-	this->Animal::operator=(src);
-
+	*(this->_brain) = *(src._brain);
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 07:50:38 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 10:42:21 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/14 10:03:08 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ class	Animal
 	
 	protected:
 	
-	Animal(std::string type);
 	std::string	type;
 };
 

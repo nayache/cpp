@@ -6,11 +6,17 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:25:50 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/08 11:29:13 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/14 09:43:47 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+
+Character::Character() : _name("unknow")
+{
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
+}
 
 Character::Character(std::string name) : _name(name)
 {

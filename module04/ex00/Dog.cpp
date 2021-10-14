@@ -6,20 +6,21 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 07:55:55 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/13 12:32:14 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/14 10:06:47 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog()
 {
+	this->type = "Dog";
 	std::cout << "Dog constructor has been called" << std::endl;
 }
 
-Dog::Dog(Dog const & src) : Animal(src.getType())
+Dog::Dog(Dog const & src)
 {
-
+	this->type = src.getType();
 }
 
 Dog::~Dog()
@@ -34,7 +35,6 @@ void	Dog::makeSound(void) const
 
 Dog&	Dog::operator=(Dog const & src)
 {
-	this->Animal::operator=(src);
-
+	this->type = src.getType();
 	return (*this);
 }

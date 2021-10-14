@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:56:47 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/08 11:29:54 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/14 10:00:24 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Ice::Ice(Ice const & src) : AMateria(src.getType())
 
 Ice&	Ice::operator=(Ice const & src)
 {
-	this->AMateria::operator=(src);
+	this->type = src.type;
 
 	return (*this);
 }

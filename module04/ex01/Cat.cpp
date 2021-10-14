@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 07:55:55 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/07 10:34:34 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/14 09:30:11 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ Cat::~Cat()
 	delete this->_brain;
 }
 
+Cat::Cat(Cat const & src)
+{
+	this->_brain = new Brain();
+	*this = src;
+}
+
 void	Cat::makeSound(void) const
 {
 	std::cout << "\033[3;38m" << "\"Miaaouuw !\"\033[0m" << std::endl;
@@ -31,8 +37,7 @@ void	Cat::makeSound(void) const
 
 Cat&	Cat::operator=(Cat const & src)
 {
-	this->Animal::operator=(src);
-
+	*(this->_brain) = *(src._brain);
 	return (*this);
 }
 
