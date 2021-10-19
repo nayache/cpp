@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:56:24 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/19 12:50:25 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/19 12:51:48 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ Form*	Intern::makeForm(const std::string type, const std::string target)
 	int		index;
 		
 	index = type_occurence(type);
-	
 	
 	switch (index) {
 		
