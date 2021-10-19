@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:20:50 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/18 11:34:57 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/19 12:36:33 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ std::ostream&	operator<<(std::ostream& os, Form const& src)
 	os << "\033[0m required grade to sign (";
 	os << "\033[1;35m" << src.getRequiredToSign() << "\033[0m) | to execute (";
 	os << "\033[1;35m" << src.getRequiredToExec() << "\e[0m)";
+	if (src.getSigned() == true)
+		os << "\e[3;32m   signed\e[0m";
 	return (os);
 }
 
