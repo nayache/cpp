@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:56:24 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/19 12:51:48 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/19 12:52:43 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,19 +65,19 @@ Form*	Intern::makeForm(const std::string type, const std::string target)
 		
 		case 0:
 				newForm = new ShrubberyCreationForm(target);
-				printCreation(type);
 				break;
 		case 1:
 				newForm = new RobotomyRequestForm(target);
-				printCreation(type);
 				break;
 		case 2:
 				newForm = new PresidentialPardonForm(target);
-				printCreation(type);
 				break;
 		
 		default:
 			throw std::runtime_error("\e[33m(Exception)unknow type form specified\e[0m");
 	}
+	
+	printCreation(type);
+	
 	return (newForm);
 }
