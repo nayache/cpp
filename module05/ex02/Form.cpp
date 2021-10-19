@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:20:50 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/18 11:34:57 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/18 13:27:30 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,16 @@ void	Form::beSigned(Bureaucrat const& src)
 		throw Form::GradeTooLowException();
 	else
 		this->_signed = true;
+}
+
+void	Form::execute(Bureaucrat const& executor) const
+{
+	if (this->getSigned() == false)
+	{
+		throw std::runtime_error("\e[33mis not signed\e[0m");
+	}
+	else if (executor.getGrade() > this->getRequiredToExec())
+	{
+		throw Form::GradeTooLowException();
+	}
 }

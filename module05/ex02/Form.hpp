@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 14:14:19 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/18 11:54:27 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/18 13:23:47 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Form
 	Form(std::string name);
 	Form(std::string name, int requiredToSign, int requiredToExec);
 	Form(Form const& src);
-	~Form();
+	virtual ~Form();
 	Form&	operator=(Form const& src);
 
 	std::string		getName(void) const;
@@ -44,6 +44,8 @@ class	Form
 	{
 		const char *what() const throw();
 	};
+
+	virtual void	execute(Bureaucrat const& src) const;	
 	
 	private:
 
