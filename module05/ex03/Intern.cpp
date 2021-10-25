@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:56:24 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/19 12:52:43 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/25 13:19:05 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int		type_occurence(const std::string type)
 	while (i < 3)
 	{
 		if (type.compare(typeForm[i]) == 0)
-			return (i);
+			break;
 		i++;
 	}
-	return (-1);
+	return (i);
 }
 
 void	printCreation(const std::string type)
