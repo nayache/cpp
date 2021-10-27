@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:53:08 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/27 11:48:39 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/27 12:31:38 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ class	Intern
 	Intern(Intern const& src);
 	~Intern();
 	Intern&	operator=(Intern const& src);
-
-/*	Form*	createShrubberyCreation(const std::string target);
-	Form*	createRobotomyRequest(const std::string target);
-	Form*	createPresidentialPardon(const std::string target);*/
 
 	Form*	makeForm(const std::string type, const std::string target);
 };
