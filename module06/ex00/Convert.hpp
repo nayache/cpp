@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:27:04 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/25 18:15:56 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/27 14:15:03 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef	enum	type
 	INT,
 	FLOAT,
 	DOUBLE,
+	SCIENTIST,
 	UNKNOW
 }				e_type;
 
@@ -28,7 +29,6 @@ class	Convert
 {
 	public:
 		
-		Convert();
 		Convert(std::string const& literal);
 		Convert(Convert const& src);
 		~Convert();
@@ -38,17 +38,22 @@ class	Convert
 		int		getInteger() const;
 		float	getFloat() const;
 		double	getDouble() const;
+		std::string	getScientist() const;
+		e_type	getScientistType() const;
 	
 		enum type	find_type(std::string const& src);
 		void	printValues(void) const;
 	
 	private:
 
-		char	_cValue;
-		int		_iValue;
-		float	_fValue;
-		double	_dValue;
-		bool	_valid;
+		Convert();
+		char		_cValue;
+		int			_iValue;
+		float		_fValue;
+		double		_dValue;
+		std::string	_sValue;
+		e_type		_scientistType;
+		bool		_valid;
 };
 
 #endif

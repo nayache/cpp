@@ -6,14 +6,16 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:32:25 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/25 18:32:43 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/27 18:29:47 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
 #include <limits>
+#include <string>
+#include <stdlib.h>
 
-Convert::Convert() : _cValue(0), _iValue(0), _fValue(0), _dValue(0), _valid(false)
+Convert::Convert()
 {
 }
 
@@ -21,20 +23,40 @@ Convert::Convert(std::string const& literal)
 {
 	e_type type = Convert::find_type(literal);
 
+	this->_scientistType = UNKNOW;
+	
 	if (type == UNKNOW)
 		return;
+	if (type == SCIENTIST)
+	{
+		std::string const scientist[6] = {"-inff", "inff", "nanf", "-inf", "inf", "nan"};
+		int i(0);
+		while (i < 6)
+		{
+			if (literal.compare(scientist[i]) == 0)
+				break;
+			i++;
+		}
+		if (i < 3)
+		{
+			this->_scientistType = FLOAT;
+			this->_sValue = literal.substr(0, literal.size() - 1);
+		}
+		else
+		{
+			this->_scientistType = DOUBLE;
+			this->_sValue = literal.c_str();
+		}
+		return;
+	}
 	if (type == INT)
 	{
-		int value;
+		long long value;
 		
-		try
-		{
-			value = std::stoi(literal);
-		}
-		catch (std::out_of_range& e)
-		{
+		const char *arg = literal.c_str();
+		value = atoll(arg);
+		if (value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min())
 			return;
-		}
 		this->_iValue = static_cast<int>(value);
 		this->_cValue = static_cast<char>(value);
 		this->_fValue = static_cast<float>(value);
@@ -44,14 +66,8 @@ Convert::Convert(std::string const& literal)
 	{
 		float value;
 	
-		try
-		{
-			value = std::stof(literal);
-		}
-		catch (std::out_of_range& e)
-		{
-			return;
-		}
+		const char *arg = literal.c_str();
+		value = atof(arg);
 		this->_fValue = static_cast<float>(value);
 		this->_cValue = static_cast<char>(value);
 		this->_iValue = static_cast<int>(value);
@@ -61,14 +77,8 @@ Convert::Convert(std::string const& literal)
 	{
 		double value;
 	
-		try
-		{
-			value = std::stod(literal);
-		}
-		catch (std::out_of_range& e)
-		{
-			return;
-		}
+		const char *arg = literal.c_str();
+		value = static_cast<double>(atof(arg));
 		this->_dValue = static_cast<double>(value);
 		this->_cValue = static_cast<char>(value);
 		this->_iValue = static_cast<int>(value);
@@ -77,9 +87,9 @@ Convert::Convert(std::string const& literal)
 	this->_valid = true;
 }
 
-Convert::Convert(Convert const& src) : Convert()
+Convert::Convert(Convert const& src)
 {
-	
+	(void)src;
 }
 
 Convert::~Convert()
@@ -113,18 +123,28 @@ double	Convert::getDouble() const
 	return (this->_dValue);
 }
 
-bool	is_digit(char c)
+e_type	Convert::getScientistType() const
+{
+	return (this->_scientistType);
+}
+
+std::string	Convert::getScientist() const
+{
+	return (this->_sValue);
+}
+
+static bool	is_digit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-bool	is_int(std::string const& src)
+static bool	is_int(std::string const& src)
 {
 	int	i(0);
 
 	if (src[0] == '-')
 		i += 1;
-	while (i < src.size())
+	while (i < static_cast<int>(src.size()))
 	{
 		if (is_digit(src[i]) == false)
 			return (false);
@@ -133,28 +153,28 @@ bool	is_int(std::string const& src)
 	return (true);
 }
 
-bool	is_float(std::string const& src)
+static bool	is_float(std::string const& src)
 {
 	int	pointCount(0);
 	int	i(0);
 	
 	if (src[0] == '-')
 		i += 1;
-	while (i < src.size())
+	while (i < static_cast<int>(src.size()))
 	{
 		if (is_digit(src[i]) == false && (src[i] != '.' && src[i] != 'f'))
 			return (0);
 		if (src[i] == '.')
 		{
 			pointCount++;
-			if (pointCount > 1 || i + 1 == src.size())
+			if (pointCount > 1 || i + 1 == static_cast<int>(src.size()))
 				return (false);
 		}
 		if (src[i] == 'f')
 		{
 			if (pointCount != 1 || is_digit(src[i - 1]) == false)
 				return (false);
-			if (i + 1 == src.size())
+			if (i + 1 == static_cast<int>(src.size()))
 				return (true);
 		}
 		i++;
@@ -162,27 +182,37 @@ bool	is_float(std::string const& src)
 	return (false);
 }
 
-bool	is_double(std::string const& src)
+static bool	is_double(std::string const& src)
 {
 	int	pointCount(0);
 	int	i(0);
 	
 	if (src[0] == '-')
 		i += 1;
-	while (i < src.size())
+	while (i < static_cast<int>(src.size()))
 	{
 		if (is_digit(src[i]) == false && src[i] != '.')
 			return (0);
 		if (src[i] == '.')
 		{
 			pointCount++;
-			if (pointCount > 1 || i + 1 == src.size())
+			if (pointCount > 1 || i + 1 == static_cast<int>(src.size()))
 				return (false);
 		}
 		i++;
 	}
 	return (true);
 
+}
+
+static bool	is_scientist(std::string const& src)
+{
+	std::string const scientist[6] = {"-inff", "inff", "nanf", "-inf", "inf", "nan"};
+
+	for (int i = 0; i < 6; i++)
+		if (src.compare(scientist[i]) == 0)
+			return (true);
+	return (false);
 }
 
 enum type	Convert::find_type(std::string const& src)
@@ -193,19 +223,30 @@ enum type	Convert::find_type(std::string const& src)
 		return (FLOAT);
 	if (is_double(src) == true)
 		return (DOUBLE);
+	if (is_scientist(src) == true)
+		return (SCIENTIST);
 	return (UNKNOW);
 }
 
-std::string	floatIsDecimal(float f)
+static std::string	doubleIsDecimal(double d)
 {
-	int		n = static_cast<int>(f);
+	long long	n = static_cast<long long>(d);
+
+	if (d - n == 0.0)
+		return (".0");
+	return("");
+}
+
+static std::string	floatIsDecimal(float f)
+{
+	long long	n = static_cast<long long>(f);
 	
 	if (f - n == 0.0f)
 		return (".0f");
 	return ("f");
 }
 
-void	printAppropriateValue(Convert const& src, int type)
+static void	printAppropriateValue(Convert const& src, int type)
 {
 	switch (type)
 	{
@@ -237,6 +278,7 @@ void	printAppropriateValue(Convert const& src, int type)
 		case DOUBLE:
 
 			std::cout << src.getDouble();
+			std::cout << doubleIsDecimal(src.getFloat());
 			break;
 	}
 }
@@ -251,6 +293,12 @@ void	Convert::printValues(void) const
 		
 		if (this->_valid == true)
 			printAppropriateValue(*this, i);
+		else if (this->_scientistType != UNKNOW && i > 1)
+		{
+			std::cout << this->_sValue;
+			if (i == 2)
+				std::cout << "f";
+		}
 		else
 			std::cout << "impossible";
 		
