@@ -6,7 +6,7 @@
 /*   By: nayache <nayache@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:56:24 by nayache           #+#    #+#             */
-/*   Updated: 2021/10/25 13:19:05 by nayache          ###   ########.fr       */
+/*   Updated: 2021/10/27 11:55:38 by nayache          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,42 @@ void	printCreation(const std::string type)
 	std::cout << "form" << std::endl;
 }
 
+static Form*	createShrubberyCreation(const std::string target)
+{
+	return (new ShrubberyCreationForm(target));
+}
+
+static Form*	createRobotomyRequest(const std::string target)
+{
+	return (new RobotomyRequestForm(target));
+}
+
+static Form*	createPresidentialPardon(const std::string target)
+{
+	return (new PresidentialPardonForm(target));
+}
+
 Form*	Intern::makeForm(const std::string type, const std::string target)
+{
+	int	index = type_occurence(type);
+
+	if (index == 3)
+		throw std::runtime_error("\e[33m(Exception)unknow type form specified\e[0m");
+	
+	Form* (*createForm[3])(const std::string target);
+	
+	createForm[0] = createShrubberyCreation;
+	createForm[1] = createRobotomyRequest;
+	createForm[2] = createPresidentialPardon;
+
+	Form	*newForm = createForm[index](target);
+	
+	printCreation(type);
+
+	return (newForm);
+}
+
+/*Form*	Intern::makeForm(const std::string type, const std::string target)
 {
 	Form*	newForm = NULL;
 	int		index;
@@ -80,4 +115,4 @@ Form*	Intern::makeForm(const std::string type, const std::string target)
 	printCreation(type);
 	
 	return (newForm);
-}
+}*/
